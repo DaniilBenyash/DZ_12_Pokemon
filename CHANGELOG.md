@@ -1,7 +1,7 @@
-## [0.2.0] - 2021.01.12
+## [0.2.0](https://github.com/DaniilBenyash/DZ_12_Pokemon/commit/ec49b36b2c6957ad7086e873da2e7cea5b3795cc) - 2021.01.12
 ### Added
 - Новые покемоны.
 
-## [0.1.0] - 2021.01.12
+## [0.1.0](https://github.com/DaniilBenyash/DZ_12_Pokemon/commit/f3bc8515f9079a2bb983d0f60bade7301dd16f9d) - 2021.01.12
 ### Added
 - Функционал создания и отображения покемонов.
