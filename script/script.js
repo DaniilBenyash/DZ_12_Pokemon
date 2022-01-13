@@ -13,24 +13,29 @@ class CreatePokemon {
     }
     methodCreatePokemon(){
         const newPokemon = pokemon.cloneNode(true);
-       section.append(newPokemon);
+        section.append(newPokemon);
         
-       newPokemon.childNodes[3].innerText = this.name;
-       newPokemon.childNodes[1].style.backgroundImage = this.image;
+        newPokemon.childNodes[3].innerText = this.name;
+        newPokemon.childNodes[1].style.backgroundImage = this.image;
 
-       const character = newPokemon.childNodes[5];
+        const character = newPokemon.childNodes[5];
 
-       const hp = character.childNodes[1];
-       hp.childNodes[3].max = this.health;
+        const hp = character.childNodes[1];
+        hp.childNodes[3].max = this.health;
+        hp.childNodes[3].value = this.health;
 
-       const hr = character.childNodes[3];
-       hr.childNodes[3].max = this.hunger;
+        const hr = character.childNodes[3];
+        hr.childNodes[3].max = this.hunger;
+        hr.childNodes[3].value = this.hunger;
         
-       const he = character.childNodes[5];
-       he.childNodes[3].max = this.hygiene;
+        const he = character.childNodes[5];
+        he.childNodes[3].max = this.hygiene;
+        he.childNodes[3].value = this.hygiene;
 
-       const dn = character.childNodes[7];
-       dn.childNodes[3].max = this.depression;
+        const dn = character.childNodes[7];
+        dn.childNodes[3].max = this.depression;
+        dn.childNodes[3].value = this.depression;
+       
     }
 };
 
