@@ -1,26 +1,23 @@
 class CreatePokemon {
-    constructor(name,image,health,hunger,hygiene,depression){
+    constructor(name,image,health,hunger,hygiene,depression,el){
         this.name = name;
         this.image = image;
         this.health = health;
         this.hunger = hunger;
         this.hygiene = hygiene;
         this.depression = depression;  
-
+        this.el = el;
+        
         this.methodCreatePokemon();
     }
     methodCreatePokemon(){
-        const pokemon = document.querySelector('.pokemon').cloneNode(true);
-
-        document.querySelector('body').append(pokemon);
-
-        const imagePokemon = pokemon.querySelector('.imagePokemon');
-        const health = pokemon.querySelector('.health');
-        const hunger = pokemon.querySelector('.hunger');
-        const hygiene = pokemon.querySelector('.hygiene');
-        const depression = pokemon.querySelector('.depression');
+        const imagePokemon = this.el.querySelector('.imagePokemon');
+        const health = this.el.querySelector('.health');
+        const hunger = this.el.querySelector('.hunger');
+        const hygiene = this.el.querySelector('.hygiene');
+        const depression = this.el.querySelector('.depression');
         
-        pokemon.querySelector('.namePokemon').innerText = this.name;
+        this.el.querySelector('.namePokemon').innerText = this.name;
         
         imagePokemon.style.backgroundImage = this.image;
 
@@ -53,9 +50,9 @@ class CreatePokemon {
                     imagePokemon.style.backgroundSize = '100% 100%';
                     imagePokemon.style.backgroundColor = '#616161d7';
 
-                    pokemon.querySelector('.plusHunger').style.display = 'none';
-                    pokemon.querySelector('.plusHygiene').style.display = 'none';
-                    pokemon.querySelector('.plusDepression').style.display = 'none';
+                    this.el.querySelector('.plusHunger').style.display = 'none';
+                    this.el.querySelector('.plusHygiene').style.display = 'none';
+                    this.el.querySelector('.plusDepression').style.display = 'none';
 
                     hunger.value = 0;
                     hygiene.value = 0;
@@ -72,20 +69,22 @@ class CreatePokemon {
             }
         }, 10);
 
-        pokemon.querySelector('.plusHunger').addEventListener('click',() => {
+        this.el.querySelector('.plusHunger').addEventListener('click',() => {
             hunger.value += 70;
         });
-        pokemon.querySelector('.plusHygiene').addEventListener('click',() => {
+        this.el.querySelector('.plusHygiene').addEventListener('click',() => {
             hygiene.value += 70;
         });
-        pokemon.querySelector('.plusDepression').addEventListener('click',() => {
+        this.el.querySelector('.plusDepression').addEventListener('click',() => {
             depression.value += 70;
         });
     }
 };
 
 document.querySelector('.addPokemon').addEventListener('click',() => {
-    
+    const pokemon = document.querySelector('.pokemon').cloneNode(true);
+    document.querySelector('body').append(pokemon);
+
     const random = Math.floor(Math.random() * arrPokemons.length);
 
     const create = new CreatePokemon(
@@ -95,5 +94,6 @@ document.querySelector('.addPokemon').addEventListener('click',() => {
         arrPokemons[random].hunger,
         arrPokemons[random].hygiene,
         arrPokemons[random].depression,
+        pokemon
         );
 })
